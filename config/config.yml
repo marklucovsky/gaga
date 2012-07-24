@@ -5,10 +5,13 @@ timelines:
     button: Speechless
     page_bg: /img/gaga-background.jpg
     tweetbox_bg: /img/gaga-box.jpg
+    tweetbox_min_height: '50px'
     twittername: ladygaga
-  - key: gaga2
-    title: A GaGa Mind2
-    button: Speechless2
-    page_bg: /img/gaga-background.jpg
-    tweetbox_bg: /img/gaga-box.jpg
-    twittername: marklucovsky
+
+  - key: justinbieber
+    title: '@justinbieber'
+    button: '#believe'
+    page_bg: /img/bieber-background.jpg
+    tweetbox_bg: /img/bieber-box.png
+    tweetbox_min_height: '60px'
+    twittername: justinbieber

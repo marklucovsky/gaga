@@ -41,6 +41,7 @@ $log.debug("$redis => #{$redis.pretty_inspect}")
 
 # return the page, rendered via haml
 get '/' do
+  headers['Cache-Control'] = 'no-store'
   get_timeline_config
   halt 400 if !@config
 
