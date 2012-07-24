@@ -1,0 +1,16 @@
+--- 
+applications: 
+  .: 
+    instances: 1
+    services: 
+      gaga-redis: 
+        type: redis
+    name: gaga
+    url: ${name}.${target-base}
+    framework: 
+      name: sinatra
+      info: 
+        description: Sinatra Application
+        exec: ruby gaga.rb
+        mem: 128M
+    mem: 128M

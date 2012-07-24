@@ -1,0 +1,61 @@
+%style(type = 'text/css')
+  :sass
+    body
+      background-color: #000000
+      margin: 0
+      font: 16px/1.4 "Helvetica Neue", "Lucida Grande", "Arial"
+      font-size: 16px
+      line-height: 1.5
+      -webkit-font-smoothing: antialiased
+      color: #dedede
+                            
+    body
+      background-image: url("#{@config['page_bg']}")
+      background-size: 100%
+      background-repeat: no-repeat
+      background-color: black
+      font-family: "Audiowide", arial
+      color: #FFFFFF
+		
+    h1
+      font-size: 50px
+		
+    #container
+      position: absolute
+      right: 3%
+      height: 200px
+      width: 52%
+
+    .rounded-box
+      border-radius: 10px 
+      -moz-border-radius: 10px 
+      -webkit-border-radius: 10px 
+      border: 3px solid #FFFFFF
+      background-color: #000000
+
+    #tweet-box
+      min-height: 50px
+      width: 100%
+      background-image: url("#{@config['tweetbox_bg']}")
+      background-size: 100%
+      padding: 5px 5px 5px 5px
+      margin-bottom: 5%
+      color: #000000
+      background-color: #FFFFFF
+      font-size: 20px
+
+    a:link
+      text-decoration: none
+      color: #000000
+
+    a:hover
+      text-decoration: underline
+      color: #000000
+
+    #generate-tweet
+      font-family: "Audiowide", arial
+      color: #FFFFFF
+      font-size: 15px
+
+    #generate-tweet:hover
+      background-color: red

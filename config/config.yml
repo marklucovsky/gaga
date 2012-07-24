@@ -1,0 +1,14 @@
+default: gaga
+timelines:
+  - key: gaga
+    title: A GaGa Mind
+    button: Speechless
+    page_bg: /img/gaga-background.jpg
+    tweetbox_bg: /img/gaga-box.jpg
+    twittername: ladygaga
+  - key: gaga2
+    title: A GaGa Mind2
+    button: Speechless2
+    page_bg: /img/gaga-background.jpg
+    tweetbox_bg: /img/gaga-box.jpg
+    twittername: marklucovsky
