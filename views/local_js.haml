@@ -1,20 +1,32 @@
 :javascript
+  var TWEETS = null
+  if (#{@tlset} == 1) {
+    TWEETS = #{@tweets.to_json};
+  }
   function clickForTweet () {
-    $.ajax({
-      url: "https://api.twitter.com/1/statuses/user_timeline.json",
-      data: {
-        screen_name: "#{@config['twittername']}",
-        count: "200"
-      },
-      dataType: "jsonp",
-      success: function(json) {
-        var i = Math.floor(Math.random() * json.length);
-        var randomTweet = json[i].text;
-        var tweetUrl = "http://twitter.com/#{@config['twittername']}/status/" + json[i].id_str;
-        var linkedTweet = $("<a>").append(randomTweet).attr("href", tweetUrl).attr("target", "_blank").attr("id", "filler");
-        $("#filler").replaceWith(linkedTweet);
-      }
-    });
+    if(TWEETS) {
+      showTweet(TWEETS['results']);
+    } else {
+      $.ajax({
+        url: "https://api.twitter.com/1/statuses/user_timeline.json",
+        data: {
+          screen_name: "#{@config['twittername']}",
+          count: "200"
+        },
+        dataType: "jsonp",
+        success: function(json) {
+          showTweet(json);
+          }
+      });
+    }
+
+    function showTweet(json) {
+      var i = Math.floor(Math.random() * json.length);
+      var randomTweet = json[i].text;
+      var tweetUrl = "http://twitter.com/#{@config['twittername']}/status/" + json[i].id_str;
+      var linkedTweet = $("<a>").append(randomTweet).attr("href", tweetUrl).attr("target", "_blank").attr("id", "filler");
+      $("#filler").replaceWith(linkedTweet);
+    }
   }
 
   // onload, bind the various click handlers

@@ -8,6 +8,7 @@ require 'pp'
 require 'logger'
 require 'httpclient'
 require 'lib/gaga/helpers.rb'
+require 'lib/gaga/redis_timeline.rb'
 
 # establish global logger to stdout
 # use "vmc logs"" or "vmc files gaga logs/stdout.log" to view
@@ -44,6 +45,12 @@ get '/' do
   headers['Cache-Control'] = 'no-store'
   get_timeline_config
   halt 400 if !@config
+
+  redis_tl = RedisTimeline.new($redis, @config)
+  @tweets = nil
+  @tweets = redis_tl.tl if redis_tl
+  @tlset = redis_tl.tlset
+  #$log.debug("get/(0): #{@tweets.pretty_inspect}") if @tweets != nil
 
   haml :index
 end

@@ -12,12 +12,12 @@ helpers do
       @config = lookup_config_key(params[:timeline])
     end
     @config = lookup_config_key($config['default']) if !@config
-    $log.debug("@config => #{@config.pretty_inspect}")
+    #$log.debug("@config => #{@config.pretty_inspect}")
   end
 
   def lookup_config_key(key)
+    #$log.debug("lck(0) #{key}")
     $config['timelines'].each do |entry|
-      $log.debug("lookup #{key}, trying #{entry}")
       if entry['key'] == key
         return entry
       end
